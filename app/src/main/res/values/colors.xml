@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue">#7EC7F3</color>
+    <color name="light_green">#4FFF78</color>
+    <color name="orange">#FF5722</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="pink">#E91E63</color>
+    <color name="purple">#3F0D61</color>
+
+    <color name="primary">#03A9F4</color>
+    <color name="primaryDark">#536DFE</color>
+    <color name="accent">#F44336</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="grey_60">#B6B6B8</color>
+    <color name="teal_100">#123456</color>
+    <color name="teal_500">#458965</color>
+    <color name="colorAccent">#11F800</color>
+    <color name="colorDefault">#dcdcdc</color>
+    <color name="round_back_white1">#EAE1E1</color>
+    <color name="math_start">#0361FB</color>
+    <color name="math_end">#223B63</color>
+    <color name="biology_start">#03DDFA</color>
+    <color name="biology_end">#285960</color>
+    <color name="physics_start">#F84209</color>
+    <color name="physics_end">#6C3E30</color>
+    <color name="chemistry_start">#EAB107</color>
+    <color name="chemistry_end">#715F29</color>
+    <color name="geography_start">#88FA04</color>
+    <color name="geography_end">#4A632C</color>
+    <color name="history_start">#009688</color>
+    <color name="history_end">#28514E</color>
+    <color name="english_start">#FA8B04</color>
+    <color name="english_end">#513C21</color>
+    <color name="grey">#B6B6BA</color>
+
+
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".TermsAndConditions">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="1dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="1dp">
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="VisualLintBounds">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/term_of_service"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/last_update_june_1_2023"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginStart="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnDownload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/baseline_download_24"
+            app:tint="@color/grey_60"
+            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/baseline_close_24"
+            app:tint="@color/grey_60"
+            tools:ignore="ImageContrastCheck,VisualLintBounds" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_60"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/fui_button_inset_bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_60"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0in"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/large_text"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/teal_100" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="1dp"/>
+
+
+
+    </LinearLayout>
+
+</TableLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1018229478395",
+    "project_id": "otp-verification-5e628",
+    "storage_bucket": "otp-verification-5e628.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018229478395:android:afae52b1e8efff88b2715e",
+        "android_client_info": {
+          "package_name": "com.muss.loginregister01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018229478395-7bbet33nqnsev0biouihbl1i2hvf530a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.muss.loginregister01",
+            "certificate_hash": "624309134dafdfb72387420deeb5639bf3df6f6a"
+          }
+        },
+        {
+          "client_id": "1018229478395-k796dvu8ej75359ngdk9j32o3nfjbuv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhLX83ElWl_B01eOaSmEiHGlIVw4qM6us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018229478395-k796dvu8ej75359ngdk9j32o3nfjbuv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
