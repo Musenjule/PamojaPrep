@@ -54,6 +54,9 @@ public class Grade4Mathematics extends AppCompatActivity {
 
 
 
+
+
+
         binding.algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +81,20 @@ public class Grade4Mathematics extends AppCompatActivity {
                             String Answer_D = String.valueOf(dataSnapshot.child("Answer_D").getValue()).toString();
                             String Correct_Answer = String.valueOf(dataSnapshot.child("Correct_Answer").getValue()).toString();
 
+                            String Question2 = String.valueOf(dataSnapshot.child("Question").getValue()).toString();
+                            String Answer_A2 = String.valueOf(dataSnapshot.child("Answer_A").getValue()).toString();
+                            String Answer_B2 = String.valueOf(dataSnapshot.child("Answer_B").getValue()).toString();
+                            String Answer_C2 = String.valueOf(dataSnapshot.child("Answer_C").getValue()).toString();
+                            String Answer_D2 = String.valueOf(dataSnapshot.child("Answer_D").getValue()).toString();
+                            String Correct_Answer2 = String.valueOf(dataSnapshot.child("Correct_Answer").getValue()).toString();
+
+                            binding.tvQuestion.setText(Question2);
+                            binding.tvAnswerA.setText(Answer_A2);
+                            binding.tvAnswerB.setText(Answer_B2);
+                            binding.tvAnswerC.setText(Answer_C2);
+                            binding.tvAnswerD.setText(Answer_D2);
+                            binding.tvCorrectAnswer.setText(Correct_Answer2);
+
                             binding.tvQuestion.setText(Question);
                             binding.tvAnswerA.setText(Answer_A);
                             binding.tvAnswerB.setText(Answer_B);
@@ -95,6 +112,9 @@ public class Grade4Mathematics extends AppCompatActivity {
                 });
             }
         });
+
+
+
 
         binding.data.setOnClickListener(new View.OnClickListener() {
             @Override

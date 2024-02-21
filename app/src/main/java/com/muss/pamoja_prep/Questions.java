@@ -1,15 +1,15 @@
 package com.muss.pamoja_prep;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,12 +18,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.muss.pamoja_prep.databinding.ActivityQuestionsBinding;
 
+import org.json.JSONObject;
+
 public class Questions extends AppCompatActivity {
 
     EditText editText;
     TextView Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18;
     DatabaseReference reference;
     ActivityQuestionsBinding binding;
+    ImageButton imageBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class Questions extends AppCompatActivity {
         Q15 = findViewById(R.id.question15);
         Q16 = findViewById(R.id.question16);
         Q17 = findViewById(R.id.question17);
+        Q18 = findViewById(R.id.question18);
 
         binding.algebra.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +66,8 @@ public class Questions extends AppCompatActivity {
                             Toast.makeText(Questions.this, "Successful", Toast.LENGTH_SHORT).show();
                             DataSnapshot dataSnapshot = task.getResult();
 
-                            String Question_1128 = String.valueOf(dataSnapshot.child("Question_1128").getValue());
+
+                            String Question_1128 = String.valueOf(dataSnapshot.child("Question_1128").getPriority());
                             String Question_1129 = String.valueOf(dataSnapshot.child("Question_1129").getValue());
                             String Question_1130 = String.valueOf(dataSnapshot.child("Question_1130").getValue());
                             String Question_1131 = String.valueOf(dataSnapshot.child("Question_1131").getValue());
@@ -99,6 +104,7 @@ public class Questions extends AppCompatActivity {
                             binding.tvQuestion16.setText(Question_1143);
                             binding.tvQuestion17.setText(Question_1144);
                             binding.tvQuestion18.setText(Question_1145);
+
 
 
 
@@ -164,7 +170,6 @@ public class Questions extends AppCompatActivity {
                             DataSnapshot dataSnapshot = task.getResult();
 
                             String Question_1103 = String.valueOf(dataSnapshot.child("Question_1103").getValue());
-                            Object Question = Object.class.cast("Question").toString();
                             String Question_1104 = String.valueOf(dataSnapshot.child("Question_1104").getValue());
                             String Question_1105 = String.valueOf(dataSnapshot.child("Question_1105").getValue());
                             String Question_1106 = String.valueOf(dataSnapshot.child("Question_1106").getValue());
@@ -210,6 +215,75 @@ public class Questions extends AppCompatActivity {
                 });
             }
         });
+
+        binding.measurement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reference = FirebaseDatabase.getInstance().getReference().child("Grade_4").child("Measurement");
+                reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(Questions.this, "Successful", Toast.LENGTH_SHORT).show();
+                            DataSnapshot dataSnapshot = task.getResult();
+
+                            String Question_1128 = String.valueOf(dataSnapshot.child("Question_1128").getValue());
+                            String Question_1129 = String.valueOf(dataSnapshot.child("Question_1129").getValue());
+                            String Question_1130 = String.valueOf(dataSnapshot.child("Question_1130").getValue());
+                            String Question_1131 = String.valueOf(dataSnapshot.child("Question_1131").getValue());
+                            String Question_1132 = String.valueOf(dataSnapshot.child("Question_1132").getValue());
+                            String Question_1133 = String.valueOf(dataSnapshot.child("Question_1133").getValue());
+                            String Question_1134 = String.valueOf(dataSnapshot.child("Question_1134").getValue());
+                            String Question_1135 = String.valueOf(dataSnapshot.child("Question_1135").getValue());
+                            String Question_1136 = String.valueOf(dataSnapshot.child("Question_1136").getValue());
+                            String Question_1137 = String.valueOf(dataSnapshot.child("Question_1137").getValue());
+                            String Question_1138 = String.valueOf(dataSnapshot.child("Question_1138").getValue());
+                            String Question_1139 = String.valueOf(dataSnapshot.child("Question_1139").getValue());
+                            String Question_1140 = String.valueOf(dataSnapshot.child("Question_1140").getValue());
+                            String Question_1141 = String.valueOf(dataSnapshot.child("Question_1141").getValue());
+                            String Question_1142 = String.valueOf(dataSnapshot.child("Question_1142").getValue());
+                            String Question_1143 = String.valueOf(dataSnapshot.child("Question_1143").getValue());
+                            String Question_1144 = String.valueOf(dataSnapshot.child("Question_1144").getValue());
+                            String Question_1145 = String.valueOf(dataSnapshot.child("Question_1145").getValue());
+
+                            binding.tvQuestion1.setText(Question_1128);
+                            binding.tvQuestion2.setText(Question_1129);
+                            binding.tvQuestion3.setText(Question_1130);
+                            binding.tvQuestion4.setText(Question_1131);
+                            binding.tvQuestion5.setText(Question_1132);
+                            binding.tvQuestion6.setText(Question_1133);
+                            binding.tvQuestion7.setText(Question_1134);
+                            binding.tvQuestion8.setText(Question_1135);
+                            binding.tvQuestion9.setText(Question_1136);
+                            binding.tvQuestion10.setText(Question_1137);
+                            binding.tvQuestion11.setText(Question_1138);
+                            binding.tvQuestion12.setText(Question_1139);
+                            binding.tvQuestion13.setText(Question_1140);
+                            binding.tvQuestion14.setText(Question_1141);
+                            binding.tvQuestion15.setText(Question_1142);
+                            binding.tvQuestion16.setText(Question_1143);
+                            binding.tvQuestion17.setText(Question_1144);
+                            binding.tvQuestion18.setText(Question_1145);
+
+
+
+                        }else {
+                            Toast.makeText(Questions.this, "Failed!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
+        imageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Questions.this, Mathematics.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
 
