@@ -56,7 +56,7 @@ public class Mathematics extends AppCompatActivity implements BottomNavigationVi
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Mathematics.this, Grade4Mathematics.class);
+                Intent intent = new Intent(Mathematics.this, Questions.class);
                 startActivity(intent);
                 finish();
                // if (grade4.isClickable()){
