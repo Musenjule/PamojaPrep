@@ -60,10 +60,11 @@ dependencies {
     implementation("androidx.test:orchestrator:1.4.2")
     implementation("com.google.firebase:firebase-database-connection:16.0.2")
     implementation("androidx.compose.ui:ui-android:1.6.1")
-
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-
+    implementation("com.google.guava:guava:r05")
+    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
     implementation("com.google.firebase:firebase-encoders-json:18.0.1")
 
 
