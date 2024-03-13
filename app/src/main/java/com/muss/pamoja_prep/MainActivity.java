@@ -24,11 +24,10 @@ import com.muss.pamoja_prep.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     TextView Mathematics,Biology,Physics,Chemistry,Geography,History,English;
-    private static final int home = 1;
-    private static final int menu = 2;
-    private static final int settings = 3;
+
+
     private int openDrawer;
-    private BottomNavigationView bottomNavigationView;
+     BottomNavigationView bottomNavigationView;
     private DrawerLayout drawerLayout;
 
 
@@ -58,19 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
 
-            switch (item.getItemId()){
-
-                case R.id.home:
-                    replaceFragment(new HomeFragment2());
-                    break;
-                case R.id.menu:
-                    Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
-                    startActivity(intent);
-                    finish();
-                    break;
-                case R.id.settings:
-                    replaceFragment(new SettingsFragment2());
-                    break;
+            if (item.getItemId() == R.id.menu) {
+                Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
+                startActivity(intent);
+                finish();
             }
 
             return true;
