@@ -35,19 +35,20 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
+
     }
 }
 
 dependencies {
 
 
-    implementation("androidx.databinding:adapters:3.2.0-alpha11")
-    implementation("androidx.databinding:baseLibrary:3.2.0-alpha11")
+
     implementation("androidx.asynclayoutinflater:asynclayoutinflater-appcompat:1.1.0-alpha01")
     implementation("androidx.appcompat:appcompat-resources:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.mediarouter:mediarouter:1.6.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -59,12 +60,19 @@ dependencies {
     implementation("androidx.credentials:credentials:1.3.0-alpha01")
     implementation("androidx.test:orchestrator:1.4.2")
     implementation("com.google.firebase:firebase-database-connection:16.0.2")
-    implementation("androidx.compose.ui:ui-android:1.6.1")
+    //implementation("androidx.compose.ui:ui-android:1.6.2")
 
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation("com.google.firebase:firebase-encoders-json:18.0.1")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.stripe:stripe-android:8.1.0")
+
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+
+
 
 
 
@@ -82,7 +90,7 @@ dependencies {
     // Android 13 and below.
     implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha01")
     implementation("androidx.legacy:legacy-support-core-ui:1.0.0")
-    implementation("androidx.legacy:legacy-support-v13:1.0.0")
+
     implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
 

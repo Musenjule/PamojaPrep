@@ -15,9 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class
+NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    //Variables
 
     private DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +30,23 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
         setContentView(R.layout.activity_navigation_drawer);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         FrameLayout frameLayout = findViewById(R.id.fragment_container);
-
         drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,
-                R.string.close_nav);
+
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
 
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
 
 
         if (savedInstanceState == null) {
@@ -48,6 +54,17 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             navigationView.setCheckedItem(R.id.nav_view);
         }
         drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+
     }
 
     @Override
@@ -60,6 +77,8 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         } else if (itemId == R.id.nav_policy) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PrivacyPolicyFragment()).commit();
             Intent intent = new Intent(NavigationDrawer.this, TermsAndConditions1.class );
+        } else if (itemId == R.id.nav_send) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FeedbackFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
             Toast.makeText(this, "logout!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(NavigationDrawer.this, Login.class);

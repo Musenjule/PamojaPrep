@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/app_image_6"
     tools:context=".Login">
 
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -64,51 +63,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="15dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/black"
-        android:hint="Password"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/password"
         android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/fui_transparent">
+        app:boxStrokeColor="@color/fui_transparent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black">
 
         <TextView
             android:id="@+id/tvPasswordError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/please_enter_password"
-            android:visibility="gone"
-            android:textColor="@android:color/holo_red_dark"/>
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
             android:background="@drawable/round_back_dark_blue5_15"
-            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
             android:inputType="textWebPassword"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-    
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="18sp"
-        android:textAllCaps="true"
-        android:layout_marginTop="60dp"
         android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="60dp"
         android:background="@drawable/round_back_primary_15"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/login"
+        android:textAllCaps="true"
         android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         tools:ignore="VisualLintButtonSize" />
 
     <TextView

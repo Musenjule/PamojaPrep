@@ -17,7 +17,7 @@
             android:id="@+id/image_view"
             android:layout_width="200dp"
             android:layout_height="140dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:src="@drawable/grade4"
             app:layout_constraintTop_toTopOf="parent"
@@ -25,14 +25,14 @@
 
         <TextView
             android:id="@+id/grade4_math"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="240dp"
-            android:paddingTop="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="70dp"
+            android:paddingTop="25dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="20dp"
-            android:text=" Topics:"
+            android:text="@string/topics"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -46,7 +46,7 @@
             android:id="@+id/algebra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1.Algebra"
+            android:text="@string/_1_algebra"
             android:background="@drawable/round_back_dark_blue5_15"
             android:layout_marginStart="200dp"
             android:textColor="@color/black"
@@ -60,7 +60,7 @@
             android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2.Data Handling"
+            android:text="@string/_2_data_handling"
             android:background="@drawable/round_back_dark_blue5_15"
             android:layout_marginStart="200dp"
             android:textColor="@color/black"
@@ -75,10 +75,10 @@
             android:id="@+id/geometry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3.Geometry"
+            android:text="@string/_3_geometry"
             android:background="@drawable/round_back_dark_blue5_15"
             android:layout_marginStart="200dp"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.432"
@@ -89,10 +89,10 @@
             android:id="@+id/measurement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4.Measurement"
+            android:text="@string/_4_measurement"
             android:background="@drawable/round_back_dark_blue5_15"
             android:layout_marginStart="200dp"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.432"
@@ -102,15 +102,24 @@
             android:id="@+id/numbers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5.Numbers"
+            android:text="@string/_5_numbers"
             android:background="@drawable/round_back_dark_blue5_15"
             android:layout_marginStart="200dp"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.432"
             app:layout_constraintStart_toStartOf="@+id/image_view"
             app:layout_constraintTop_toBottomOf="@+id/measurement"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/measurement" />
 
 
 
@@ -118,7 +127,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="140dp">
+            android:layout_marginTop="160dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,7 +138,9 @@
                 android:nestedScrollingEnabled="true"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="344dp">
+                tools:layout_editor_absoluteY="344dp"
+                tools:viewBindingIgnore="true">
+
 
                 <LinearLayout
                     android:id="@+id/linearLayout1"
@@ -144,7 +158,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Q1:"
+                        android:text="@string/q1"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="normal" />
@@ -162,154 +176,174 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
-                    android:id="@+id/linearLayoutA"
+                    android:id="@+id/Answers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A"
+                        <TextView
+                            android:id="@+id/A"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
+                        android:text="@string/correct_answer"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvCorrect_Answer"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -332,7 +366,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Q2:"
+                        android:text="@string/q2"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="normal" />
@@ -348,8 +382,14 @@
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
-
                 </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Answers2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:id="@+id/linearLayoutA2"
                     android:layout_width="wrap_content"
@@ -359,6 +399,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/A2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -370,11 +411,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_A2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -389,6 +431,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/B2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -400,11 +443,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_B2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -419,6 +463,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/C2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -430,11 +475,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_C2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -449,6 +495,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/D2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -461,26 +508,32 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_D2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
                 </LinearLayout>
 
+            </LinearLayout>
+
+
                 <LinearLayout
                     android:id="@+id/linearLayoutCA2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -498,6 +551,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -538,6 +592,12 @@
 
 
                 </LinearLayout>
+            <LinearLayout
+                android:id="@+id/Answers3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:id="@+id/linearLayoutA3"
                     android:layout_width="wrap_content"
@@ -547,6 +607,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/A3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -558,11 +619,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_A3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -577,6 +639,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/B3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -588,11 +651,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_B3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -607,6 +671,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/C3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -618,11 +683,12 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_C3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -637,6 +703,7 @@
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/D3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -649,26 +716,33 @@
 
                     <TextView
                         android:id="@+id/tvAnswer_D3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginStart="10dp"
                         android:text=""
+                        android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
                 </LinearLayout>
 
+            </LinearLayout>
+
+
+
                 <LinearLayout
                     android:id="@+id/linearLayoutCA3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -686,6 +760,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -725,137 +800,157 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
-                    android:id="@+id/linearLayoutA4"
+                    android:id="@+id/Answers4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A4"
+                        <TextView
+                            android:id="@+id/A4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A4"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B4"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C4"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D4"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -873,6 +968,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -912,137 +1008,157 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
-                    android:id="@+id/linearLayoutA5"
+                    android:id="@+id/Answers5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A5"
+                        <TextView
+                            android:id="@+id/A5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A5"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B5"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C5"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D5"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -1060,6 +1176,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -1100,136 +1217,155 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/linearLayoutA6"
+                    android:id="@+id/Answers6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A6"
+                        <TextView
+                            android:id="@+id/A6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A6"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B6"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C6"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D6"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -1247,6 +1383,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -1287,136 +1424,155 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/linearLayoutA7"
+                    android:id="@+id/Answers7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A7"
+                        <TextView
+                            android:id="@+id/A7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A7"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B7"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C7"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D7"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -1434,6 +1590,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -1474,136 +1631,155 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/linearLayoutA8"
+                    android:id="@+id/Answers8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A8"
+                        <TextView
+                            android:id="@+id/A8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A8"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B8"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C8"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D8"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -1621,6 +1797,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -1661,136 +1838,155 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/linearLayoutA9"
+                    android:id="@+id/Answers9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A9"
+                        <TextView
+                            android:id="@+id/A9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A9"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B9"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C9"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D9"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayoutCA9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout4"
                     tools:ignore="MissingConstraints">
 
                     <TextView
+                        android:id="@+id/correct_Answer9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -1808,6 +2004,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="5dp"
                         android:text=""
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -1848,1653 +2045,179 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/linearLayoutA10"
+                    android:id="@+id/Answers10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/linearLayoutA10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:id="@+id/tvAnswer_A10"
+                        <TextView
+                            android:id="@+id/A10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="A:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_A10"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutB10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/B10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="B:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_B10"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutC10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/C10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:text="C:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_C10"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutD10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/D10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="D:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tvAnswer_D10"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="10dp"
+                            android:text=""
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutCA10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/correct_Answer10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="Correct Answer:"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCorrect_Answer10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:text=""
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayoutB10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
 
-                    <TextView
-                        android:id="@+id/tvAnswer_B10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout10">
-
-                    <TextView
-                        android:id="@+id/question11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q11:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout11">
-
-                    <TextView
-                        android:id="@+id/question12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q12:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout12">
-
-                    <TextView
-                        android:id="@+id/question13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q13:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout13">
-
-                    <TextView
-                        android:id="@+id/question14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q14:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout14">
-
-                    <TextView
-                        android:id="@+id/question15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q15:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout15">
-
-                    <TextView
-                        android:id="@+id/question16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q16:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout16">
-
-                    <TextView
-                        android:id="@+id/question17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q17:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout17">
-
-                    <TextView
-                        android:id="@+id/question18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Q18:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvQuestion18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="20dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linearLayoutA18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="A:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_A18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutB18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout1"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="B:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_B18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutC18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:text="C:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_C18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutD18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="D:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="normal" />
-
-                    <TextView
-                        android:id="@+id/tvAnswer_D18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutCA18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="Correct Answer:"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvCorrect_Answer18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
 
 
             </LinearLayout>

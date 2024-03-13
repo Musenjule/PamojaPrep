@@ -1,58 +1,94 @@
 package com.muss.pamoja_prep;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.muss.pamoja_prep.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
+    ActivityMainBinding binding;
     TextView Mathematics,Biology,Physics,Chemistry,Geography,History,English;
+    private static final int home = 1;
+    private static final int menu = 2;
+    private static final int settings = 3;
+    private int openDrawer;
+    private BottomNavigationView bottomNavigationView;
+    private DrawerLayout drawerLayout;
 
-    AppCompatImageButton menuBtn;
 
-    View Menu;
-
-
-
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
-
-        LinearLayout maths = findViewById(R.id.maths_id);
-        Biology = findViewById(R.id.biology_id);
-        Physics = findViewById(R.id.physics_id);
-        Chemistry = findViewById(R.id.chemistry_id);
-        Geography = findViewById(R.id.geography_id);
-        History = findViewById(R.id.history_id);
-        English = findViewById(R.id.english_id);
+        
+        DrawerLayout drawerLayout;
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        bottomNavigationView.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
-                startActivity(intent);
-                finish();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //open navigation drawer when bottom item is selected
+                if (item.getItemId() == R.id.menu){
+                    openNavigationDrawer();
+                    return true;
+                }
+                //handle other bottom navigation items here
+                return false;
             }
         });
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+
+                case R.id.home:
+                    replaceFragment(new HomeFragment2());
+                    break;
+                case R.id.menu:
+                    Intent intent = new Intent(MainActivity.this, NavigationDrawer.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                case R.id.settings:
+                    replaceFragment(new SettingsFragment2());
+                    break;
+            }
+
+            return true;
+        });
+
+        LinearLayout Mathematics = findViewById(R.id.Mathematics);
+        LinearLayout Biology= findViewById(R.id.Biology);
+        LinearLayout Physics = findViewById(R.id.Physics);
+        LinearLayout Chemistry = findViewById(R.id.Chemistry);
+        LinearLayout Geography = findViewById(R.id.Geography);
+        LinearLayout History = findViewById(R.id.History);
+        LinearLayout English = findViewById(R.id.English);
 
 
 
 
 
-        maths.setOnClickListener(new View.OnClickListener() {
+        Mathematics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Mathematics.class);
@@ -98,5 +134,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private void openNavigationDrawer() {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.commit();
+    }
+
 
 }

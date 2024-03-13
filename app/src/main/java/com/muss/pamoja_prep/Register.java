@@ -3,9 +3,12 @@ package com.muss.pamoja_prep;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -40,10 +43,7 @@ public class Register extends AppCompatActivity {
     private  boolean hasUpperCase = false, hasLowerCase = false, hasNumber = false, hasSymbol = false, isAtLeast8 = false, isSignUpClickable = false;
 
     private final boolean checkEmptyField = false, isChecked = false;
-
-
-
-
+    private Context context;
 
 
     @Override
@@ -76,6 +76,17 @@ public class Register extends AppCompatActivity {
                 email = emailET.getText().toString();
                 mobile = mobileET.getText().toString();
                 password = passwordET.getText().toString();
+
+
+        // In your register activity
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Register.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("firstName", firstName);
+        editor.putString("email", email);
+        editor.putString("mobile", mobile);
+        editor.putString("password", password);
+        editor.apply();
+
 
 
 
